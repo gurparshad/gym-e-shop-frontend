@@ -1,73 +1,89 @@
 <template>
-  <div class="container">
+  <div class="home">
     <div>
-      <Logo />
-      <h1 class="title">
-        client
-      </h1>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--green"
-        >
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--grey"
-        >
-          GitHub
-        </a>
-      </div>
+        <img class="bannerImage" src="/banner.png"/>
     </div>
+    <div>
+        <h1 class="head">All the product you need for a healthy lifestyle</h1>
+        <div class="products">
+          <div class="product" v-for="item in products" :key="item._id">
+            <Product :product-id="item._id" :product-title="item.title"
+            :product-price="item.price" :product-rating="item.rating"
+          />
+        </div>
+    </div>
+    <div class="bottom-banner">
+      <div class="bottom-banner-child">
+        <img src="/image1.jpg" alt="image">
+        <h3>Push your limits Everyday</h3>
+      </div>
+      <div class="bottom-banner-child">
+        <img src="/image2.jpg" alt="image">
+        <h3>Cloths, Accessories, Equipments</h3>
+        <button>Buy Now</button>
+      </div>
+
+    </div>
+  </div>
   </div>
 </template>
 
 <script>
-export default {}
+import Product from '../components/Product';
+export default {
+  name: 'Home',
+  components: {
+    Product,
+  },
+
+  async asyncData({$axios}){
+    try{
+      let response = await $axios.$get("http://localhost:5000/product/getAllProducts");
+      console.log(response);
+      return {
+        products: response.products
+      }
+    }catch(err){
+      console.log(err);
+    }
+  },
+
+}
 </script>
 
-<style>
-.container {
-  margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style scoped>
+
+.home{
+  margin-bottom: 100px;
+}
+
+.bannerImage{
+  object-fit: contain;
+  width: 100%;
+}
+
+.head {
   text-align: center;
+  margin-top: 20px;
 }
 
-.title {
-  font-family:
-    'Quicksand',
-    'Source Sans Pro',
-    -apple-system,
-    BlinkMacSystemFont,
-    'Segoe UI',
-    Roboto,
-    'Helvetica Neue',
-    Arial,
-    sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
+.products{
+  display: flex;
+  justify-content: space-around;
+  margin: 30px;
 }
 
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
+.bottom-banner{
+  display: flex;
+  justify-content: space-around;
+  margin-top: 80px;
 }
 
-.links {
-  padding-top: 15px;
+.bottom-banner-child{
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 50px;
 }
+
 </style>

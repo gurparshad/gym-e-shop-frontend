@@ -1,3 +1,5 @@
+// const API_URL = 'http://localhost:5000';
+
 export default {
   // Global page headers (https://go.nuxtjs.dev/config-head)
   head: {
@@ -11,17 +13,16 @@ export default {
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ]
   },
-  server: {
-    port: 8000, // default: 3000
-  },
+  // server: {
+  //   port: 8000,
+  // },
 
   // Global CSS (https://go.nuxtjs.dev/config-css)
   css: [
   ],
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
-  plugins: [
-  ],
+  plugins: [{src: '~/plugins/localstorage.js', ssr: false}],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
   components: true,
@@ -38,14 +39,36 @@ export default {
     'bootstrap-vue/nuxt',
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
+    '@nuxtjs/proxy',
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
+    // library to save the token in local storage or cookie.
+    '@nuxtjs/auth',
   ],
 
   // Axios module configuration (https://go.nuxtjs.dev/config-axios)
-  axios: {},
+  axios: {
+    proxy: true,
+    // baseURL: API_URL
+  },
+
+  proxy: {
+    '/api/': { target: 'http://localhost:5000', pathRewrite: {'^/api/': ''}, changeOrigin: true }
+  },
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {
+  },
+
+  auth: {
+    strategies: {
+      local: {
+        endpoints: {
+          login: { url: 'http://localhost:5000/user/auth/login', method: 'post', propertyName: "token"},
+          logout:true,
+          user: {url: 'http://localhost:5000/user/auth/user', method: 'get', propertyName: 'user'}
+        }
+      }
+    }
   }
 }
