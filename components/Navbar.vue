@@ -42,6 +42,11 @@
             </nuxt-link>
             </b-nav-item>
 
+                     <b-nav-item>
+          <nuxt-link to="/orders">
+           My Orders
+            </nuxt-link>
+            </b-nav-item>
 
 
       </b-navbar-nav>

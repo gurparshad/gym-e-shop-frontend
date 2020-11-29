@@ -16,7 +16,11 @@
     </div>
     <hr>
     <h3>Subtotal({{getCartLength}} items): ${{getCartTotalPrice}}</h3>
-    <button>Proceed to Checkout</button>
+    <button>
+      <nuxt-link to="/placeorder">Proceed to Checkout
+    </nuxt-link></button>
+    <nuxt-link to="/placeorder">
+    </nuxt-link>
   </div>
 </template>
 
