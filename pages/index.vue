@@ -1,8 +1,14 @@
 <template>
   <div class="home">
-    <div>
+    <div class="search">
+      <Search/>
+    </div>
+
+    <div class="main">
+
         <img class="bannerImage" src="/banner.png"/>
     </div>
+
     <div>
         <h1 class="head">All the product you need for a healthy lifestyle</h1>
         <div class="products">
@@ -31,10 +37,12 @@
 
 <script>
 import Product from '../components/Product';
+import Search from '../components/Search';
 export default {
   name: 'Home',
   components: {
     Product,
+    Search
   },
 
   async asyncData({$axios}){
@@ -55,8 +63,15 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 
+
 .home{
   margin-bottom: 100px;
+}
+
+.search{
+  display: flex;
+  justify-content: center;
+  margin: 10px;
 }
 
 .bannerImage{

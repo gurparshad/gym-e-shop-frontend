@@ -17,6 +17,8 @@
               <template v-if="$auth.$state.loggedIn">
                <b-nav-item> Hello, {{$auth.$state.user.name}} </b-nav-item>
 
+
+
             <b-nav-item>
                <nuxt-link to="/profile">
                Profile
@@ -92,4 +94,5 @@ a, a:hover, a:focus, a:active{
   text-decoration: none;
   color: inherit;
 }
+
 </style>
