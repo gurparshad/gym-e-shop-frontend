@@ -1,7 +1,7 @@
  <template>
   <div>
        <NuxtLink :to="'/products/' + productId">
-          <img src="/impact-whey-protein.jpg" alt="product-image"/>
+          <img :src="'http://localhost:5000/'+ productPhoto" alt="product-image"/>
         </NuxtLink>
 
       <h2>{{productTitle}}</h2>
@@ -17,7 +17,7 @@
 
 export default {
     name: 'Product',
-    props: ['productId','productPrice', 'productTitle', 'productRating']
+    props: ['productId','productPrice', 'productTitle', 'productRating', 'productPhoto']
 }
 </script>
 
@@ -25,5 +25,9 @@ export default {
 a, a:hover, a:focus, a:active{
   text-decoration: none;
   color: inherit;
+}
+img{
+  height: 300px;
+  width: 250px;
 }
 </style>

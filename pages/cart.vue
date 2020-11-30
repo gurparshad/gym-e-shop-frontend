@@ -7,7 +7,7 @@
       <h3>Qty: {{product.quantity}}</h3>
       <h3>$ {{product.price * product.quantity}}</h3>
       <!-- <div>{{product.rating}}</div> -->
-      <img src="/impact-whey-protein.jpg"/>
+       <img :src="'http://localhost:5000/'+ product.photo"/>
       <button @click="$store.commit('removeProduct', product)">Remove</button>
       <div>
           <h3>Description:</h3>
@@ -32,3 +32,10 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+img{
+  height: 300px;
+  width: 250px;
+}
+</style>

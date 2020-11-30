@@ -1,12 +1,13 @@
 <template>
 <div class="order-page">
-  <h2>Yor Orders</h2>
+  <h2>Your Orders</h2>
   {{$auth.state.user.name}}
   <div v-for="order in orders" :key="order._id">
+    <h3>Order ID:{{order._id}}</h3>
     <div class="orders-products">
       <div class="product" v-for="product in order.products" :key="product._id">
-        <img src="/impact-whey-protein.jpg" alt="image">
-        <!-- <h4>{{product.productID.title}}</h4> -->
+         <!-- <img :src="'http://localhost:5000/'+ product.photo"/> -->
+        <p>Product ID:{{product._id}}</p>
         <p>Quantity:{{product.quantity}}</p>
         <p>Price: {{product.price}}</p>
       </div>

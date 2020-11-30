@@ -9,6 +9,7 @@
           <div class="product" v-for="item in products" :key="item._id">
             <Product :product-id="item._id" :product-title="item.title"
             :product-price="item.price" :product-rating="item.rating"
+            :product-photo="item.photo"
           />
         </div>
     </div>

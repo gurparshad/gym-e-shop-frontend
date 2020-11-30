@@ -12,7 +12,7 @@
       <h3>Products in your Cart</h3>
       <div class="product" v-for="product in getCart" :key="product._id">
         <h4>{{product.title}}</h4>
-        <img src="/impact-whey-protein.jpg" alt="">
+         <img :src="'http://localhost:5000/'+ product.photo"/>
         <p>Price: {{product.price * product.quantity}}</p>
         <p>Quantity: {{product.quantity}}</p>
       </div>

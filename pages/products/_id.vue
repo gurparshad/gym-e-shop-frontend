@@ -5,7 +5,7 @@
       <h1>{{product.title}}</h1>
       <h3>$ {{product.price}}</h3>
       <!-- <div>{{product.rating}}</div> -->
-      <img src="/impact-whey-protein.jpg"/>
+      <img :src="'http://localhost:5000/'+ product.photo"/>
       <button @click="addProductToCart(product)">Add to Cart</button>
       <div>
           <h3>Description:</h3>
@@ -57,6 +57,8 @@ export default {
 }
 img{
   object-fit: contain;
+  height: 300px;
+  width: 250px;
 }
 .reviewSection{
   margin: 20px;
