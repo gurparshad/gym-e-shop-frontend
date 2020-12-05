@@ -40,7 +40,6 @@ export default {
   async asyncData({ $axios, params }) {
     try{
       let response = await $axios.$get(`http://localhost:5000/product/getProduct/${params.id}`);
-      console.log("product ____????",response.product);
       return {
         product: response.product
       }
@@ -65,8 +64,6 @@ export default {
           headline: this.headline,
           body: this.body
         }
-
-        console.log("data is ===??", data);
 
         let response = await this.$axios.$post(
           `http://localhost:5000/review/addReview/${this.$route.params.id}`,

@@ -86,9 +86,7 @@ export default {
         deliverInstructions: this.deliverInstructions,
         securityCode: this.securityCode
       }
-      console.log("data is ", data);
       let response = await this.$axios.$post('http://localhost:5000/address/addAddress', data);
-      console.log("response", response);
 
       if(response.success){
         this.$router.push('/');

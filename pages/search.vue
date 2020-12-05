@@ -24,8 +24,6 @@ export default {
   async asyncData({ $axios, query }) {
     try{
       let products = await $axios.$post('http://localhost:5000/search/searchProduct',{ title: query.title})
-      console.log("searched products --->>>",products);
-      console.log("<<<>>>", products[0]);
       return {
         products
       }

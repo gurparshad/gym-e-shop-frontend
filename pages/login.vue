@@ -37,7 +37,6 @@
     methods: {
       async onLogin(e){
         e.preventDefault();
-        console.log("here )877657566");
         try{
             this.$auth.loginWith("local", {
               data: {

@@ -1,15 +1,19 @@
 <template>
 <div class="order-page">
   <h2>Your Orders</h2>
-  {{$auth.state.user.name}}
   <div v-for="order in orders" :key="order._id">
-    <h3>Order ID:{{order._id}}</h3>
+
+    <h4>
+      <NuxtLink :to="'/orderDetails/' + order._id">
+      Order Id: {{order._id}}
+      </NuxtLink>
+      </h4>
     <div class="orders-products">
       <div class="product" v-for="product in order.products" :key="product._id">
-         <!-- <img :src="'http://localhost:5000/'+ product.photo"/> -->
-        <p>Product ID:{{product._id}}</p>
-        <p>Quantity:{{product.quantity}}</p>
-        <p>Price: {{product.price}}</p>
+        <h4>{{product.prodId.title}}</h4>
+        <img :src="'http://localhost:5000/'+ product.prodId.photo" alt="">
+        <!-- <p>Quantity:{{product.quantity}}</p>
+        <p>Price: {{product.price}}</p> -->
       </div>
     </div>
   </div>
@@ -20,9 +24,7 @@
 export default {
   async asyncData({ $axios }) {
     try{
-      console.log("here my friend");
       let response = await $axios.$get('http://localhost:5000/order/allOrders');
-      console.log("hey man",response);
 
       return {
         orders: response.products
@@ -35,6 +37,11 @@ export default {
 </script>
 
 <style scoped>
+
+a{
+  text-decoration: none;
+  color: rgb(87, 188, 231);
+}
 .order-page{
   margin: 20px;
 }

@@ -71,15 +71,12 @@ export default {
     async onPurchase(e){
       e.preventDefault();
       try{
-        console.log("here");
         let token = await this.stripe.createToken(this.card);
-        console.log("token", token);
         let response = await this.$axios.$post('http://localhost:5000/payment/makePayment', {
           token: token,
           totalPrice: this.getCartTotalPrice,
           cart: this.getCart
         });
-        console.log("----->>>>", response);
 
         if(response.success){
           this.$store.commit("clearCart");

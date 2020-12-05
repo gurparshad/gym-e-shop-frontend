@@ -8,7 +8,14 @@
       <h3>$ {{product.price * product.quantity}}</h3>
       <!-- <div>{{product.rating}}</div> -->
        <img :src="'http://localhost:5000/'+ product.photo"/>
+        Qty:
+       <select @change="onChangeQuantity($event, product)">
+         <option v-for="i in 10" :key="i" :value="i" :selected="checkQty(product.quantity, i)">
+           &nbsp;{{i}}
+         </option>
+       </select>
       <button @click="$store.commit('removeProduct', product)">Remove</button>
+
       <div>
           <h3>Description:</h3>
           <p>{{product.description}}</p>
@@ -29,7 +36,21 @@ import {mapGetters} from 'vuex';
 export default {
   computed: {
     ...mapGetters(["getCart", "getCartTotalPrice", "getCartLength"])
-  }
+  },
+  methods: {
+    onChangeQuantity(event, product){
+      let qty = parseInt(event.target.value)
+      this.$store.commit("changeQty", { product, qty });
+    },
+
+    checkQty(prodQty, qty){
+      if(parseInt(prodQty) === parseInt(qty)){
+        return true;
+      } else {
+        return false;
+      }
+    }
+  },
 }
 </script>
 

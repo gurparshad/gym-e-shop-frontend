@@ -45,7 +45,6 @@
     methods: {
       async onSignup(e){
         e.preventDefault();
-        console.log("here )877657566");
         try{
           let data = {
             name: this.name,

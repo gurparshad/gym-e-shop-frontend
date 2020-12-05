@@ -36,7 +36,6 @@ export default {
   async asyncData({ $axios}){
     try{
       let response = await $axios.$get('http://localhost:5000/address/getAddresses');
-      console.log("address",response);
 
       return {
         addresses: response.addresses

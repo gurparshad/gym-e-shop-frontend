@@ -3,34 +3,25 @@
     <div class="search">
       <Search/>
     </div>
-
+    <div class="categories">
+      <Categories :categories="categories"/>
+    </div>
     <div class="main">
 
         <img class="bannerImage" src="/banner.png"/>
     </div>
 
     <div>
-        <h1 class="head">All the product you need for a healthy lifestyle</h1>
+        <h1 class="head">All the games u want to play are available here</h1>
         <div class="products">
-          <div class="product" v-for="item in products" :key="item._id">
+          <div class="product" v-for="item in products.slice(0, 3)" :key="item._id">
             <Product :product-id="item._id" :product-title="item.title"
             :product-price="item.price" :product-rating="item.rating"
             :product-photo="item.photo"
           />
         </div>
     </div>
-    <div class="bottom-banner">
-      <div class="bottom-banner-child">
-        <img src="/image1.jpg" alt="image">
-        <h3>Push your limits Everyday</h3>
-      </div>
-      <div class="bottom-banner-child">
-        <img src="/image2.jpg" alt="image">
-        <h3>Cloths, Accessories, Equipments</h3>
-        <button>Buy Now</button>
-      </div>
 
-    </div>
   </div>
   </div>
 </template>
@@ -38,19 +29,22 @@
 <script>
 import Product from '../components/Product';
 import Search from '../components/Search';
+import Categories from '../components/Categories';
 export default {
   name: 'Home',
   components: {
     Product,
-    Search
+    Search,
+    Categories
   },
 
   async asyncData({$axios}){
     try{
       let response = await $axios.$get("http://localhost:5000/product/getAllProducts");
-      console.log(response);
+      let response2 = await $axios.$get("http://localhost:5000/category/getCategories");
       return {
-        products: response.products
+        products: response.products,
+        categories: response2.categories,
       }
     }catch(err){
       console.log(err);

@@ -7,10 +7,6 @@
       <h2>{{productTitle}}</h2>
       <!-- <div>{{productRating}}</div> -->
       <h3>${{productPrice}}</h3>
-      <button>
-        <nuxt-link to="/cart">
-           Add to Cart </nuxt-link></button>
-      <button>Buy Now</button>
   </div>
 </template>
 <script>

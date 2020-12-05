@@ -2,12 +2,12 @@
 <div>
   <h3>Product Details</h3>
   <div class="productDetails">
-      <h1>{{product.title}}</h1>
+      <h3>{{product.title}}</h3>
       <h3>$ {{product.price}}</h3>
       <!-- <div>{{product.rating}}</div> -->
-      <img :src="'http://localhost:5000/'+ product.photo"/>
+      <img class="prodImage" :src="'http://localhost:5000/'+ product.photo"/>
       <button @click="addProductToCart(product)">Add to Cart</button>
-      <div>
+      <div class="productDesc">
           <h3>Description:</h3>
           <p>{{product.description}}</p>
       </div>
@@ -49,16 +49,21 @@ export default {
 </script>
 
 <style>
+
 .productDetails{
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
-img{
-  object-fit: contain;
-  height: 300px;
-  width: 250px;
+
+.prodImage{
+  height: 400px;
+  width: 300px;
+}
+
+.productDesc{
+  margin: 20px;
 }
 .reviewSection{
   margin: 20px;
