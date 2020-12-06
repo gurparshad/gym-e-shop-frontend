@@ -116,4 +116,8 @@ border: 1px solid lightgray;
 .review__productPrice{
   margin: 20px;
 }
+img{
+  width: 300px;
+  height: 300px;
+}
 </style>

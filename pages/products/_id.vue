@@ -3,7 +3,6 @@
   <div class="productDetails">
       <h3>{{product.title}}</h3>
       <h3>$ {{product.price}}</h3>
-      <!-- <div>{{product.rating}}</div> -->
       <img class="prodImage" :src="'http://localhost:5000/'+ product.photo"/>
       <button class="btn btn-dark" @click="addProductToCart(product)">Add to Cart</button>
       <div class="productDesc">
@@ -12,9 +11,9 @@
           <h3>Rating</h3>
           <p>⭐⭐⭐⭐⭐</p>
       </div>
+              <div class="reviewSection">
+          <ReviewSection :product="product" :reviews="reviews" />
       </div>
-      <div class="reviewSection">
-        <ReviewSection :product="product" :reviews="reviews" />
       </div>
 
 
@@ -51,16 +50,20 @@ export default {
 
 <style>
 .productDetails{
+    width: 800px;
     margin-top: 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .prodImage{
-  height: 400px;
+  height: 350px;
   width: 300px;
+  object-fit: contain;
   border-radius: 10px;
   margin: 10px;
 }
@@ -68,7 +71,11 @@ export default {
 .productDesc{
   margin: 20px;
 }
+
 .reviewSection{
-  margin: 20px;
+  width: 800px;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: auto;
 }
 </style>

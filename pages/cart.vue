@@ -5,7 +5,7 @@
     <div class="product" v-for="product in getCart" :key="product._id">
       <h2>{{product.title}}</h2>
       <h5>Quantity: {{product.quantity}}</h5>
-      <h4>$ {{product.price * product.quantity}}</h4>
+      <h4>$ {{(product.price * product.quantity).toFixed(2)}}</h4>
       <!-- <div>{{product.rating}}</div> -->
        <img :src="'http://localhost:5000/'+ product.photo"/>
         Qty:

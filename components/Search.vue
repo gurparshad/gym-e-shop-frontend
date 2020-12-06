@@ -23,7 +23,9 @@ data(){
       query: "",
       modal: false,
       products: [
-        'Bag','Protein clear vegan','Whey Protein','Peanut butter'
+        'Whey Protein','Clear Vegan Protein','Women Leggies','Peanut butter','Women Cross Bra',
+        'Gym Bag', 'Shaker', 'Adjustable Weight Bench', 'Pull up bar', 'Weights Storage Rack',
+        'Dumbbels'
       ],
       filteredProducts: [],
     }

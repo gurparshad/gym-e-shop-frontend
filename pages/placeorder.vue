@@ -13,7 +13,7 @@
       <div class="product" v-for="product in getCart" :key="product._id">
         <h4>{{product.title}}</h4>
          <img :src="'http://localhost:5000/'+ product.photo"/>
-        <p>Price: {{product.price * product.quantity}}</p>
+        <p>Price: {{(product.price * product.quantity).toFixed(2)}}</p>
         <p>Quantity: {{product.quantity}}</p>
       </div>
       <hr>
@@ -58,5 +58,9 @@ export default {
   border: 1px solid lightgray;
   padding: 10px;
   border-radius: 10px;
+}
+img{
+  width: 300px;
+  height: 300px;
 }
 </style>

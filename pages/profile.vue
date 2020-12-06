@@ -9,11 +9,9 @@
       <h4>User Address</h4>
       <template v-if="addresses.length < 1">
         <p>Please enter the address, by pressing the button below.</p>
-      <button>
-        <nuxt-link to="/address/add">
+        <nuxt-link class="btn btn-dark" to="/address/add">
           Add Address
         </nuxt-link>
-        </button>
       </template>
       <template v-else>
       <p>Full Name:{{addresses[0].fullName}}</p>

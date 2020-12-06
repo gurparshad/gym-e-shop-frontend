@@ -9,7 +9,7 @@
         <img :src="'http://localhost:5000/'+ product.prodId.photo" alt="">
         <p>Price: {{product.price}}</p>
         <p>Quantity:{{product.quantity}}</p>
-        <nuxt-link :to="'/reviews/'+ product.prodId._id" class="btn btn-dark">Add Review</nuxt-link>
+        <nuxt-link :to="'/reviews/'+ product.prodId._id" class="addReviewBtn btn btn-dark">Add Review</nuxt-link>
         </div>
       </div>
     </div>
@@ -51,5 +51,13 @@ export default {
 .products{
   border: 3px solid lightgray;
   padding: 10px;
+}
+img{
+  width: 300px;
+  height: 300px;
+}
+.product{
+  margin: 20px;
+  margin-bottom: 80px;
 }
 </style>

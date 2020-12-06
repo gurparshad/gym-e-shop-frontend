@@ -17,11 +17,16 @@ export default {
 
 <style scoped>
 .review-body{
+  text-align: left;
   margin: 20px;
   padding: 10px;
   border: 1px solid lightgray;
   border-radius: 10px;
   box-shadow: 5px 5px lightgray;
+}
+.h3{
+  text-align: left;
+  margin-left: 20px;
 }
 </style>
 

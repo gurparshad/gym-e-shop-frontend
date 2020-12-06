@@ -10,8 +10,9 @@
       <div class="product" v-for="product in order.products" :key="product._id">
         <h4>{{product.prodId.title}}</h4>
         <img :src="'http://localhost:5000/'+ product.prodId.photo" alt="">
+        </div>
         <nuxt-link :to="'/orderDetails/' + order._id" class="btn btn-dark">Order Details</nuxt-link>
-      </div>
+
     </div>
   </div>
 </div>
@@ -51,6 +52,15 @@ a{
 .btn{
   margin: 20px;
   color: white;
+}
+
+img{
+  width: 300px;
+  height: 300px;
+}
+
+.product{
+  margin: 20px;
 }
 
 </style>

@@ -40,4 +40,8 @@ export default {
   margin: 10px;
   padding: 10px;
 }
+img{
+  height: 300px;
+  width: 300px;
+}
 </style>
