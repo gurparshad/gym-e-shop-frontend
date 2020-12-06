@@ -19,9 +19,7 @@
       <hr>
       <h3>Total Price:{{getCartTotalPrice}}</h3>
       <br>
-          <button>
-      <nuxt-link to="/payment">Continue</nuxt-link>
-      </button>
+      <nuxt-link to="/payment" class="btn btn-dark">Continue to payment page</nuxt-link>
     </div>
 
   </div>

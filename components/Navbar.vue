@@ -1,10 +1,10 @@
 <template>
     <div>
-  <b-navbar toggleable="lg" type="dark" variant="info">
+  <b-navbar toggleable="lg" type="dark" variant="dark" background-color= "green">
     <b-navbar-brand>
 
           <NuxtLink to="/">
-        Brutal-X
+        Gym-Shop
           </NuxtLink></b-navbar-brand>
 
     <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
@@ -14,11 +14,17 @@
       <!-- Right aligned nav items -->
       <b-navbar-nav class="ml-auto">
               <b-navbar-nav>
+                 <!-- <b-nav-item>
+                <Search/>
+                </b-nav-item> -->
+
               <template v-if="$auth.$state.loggedIn">
-               <b-nav-item> Hello, {{$auth.$state.user.name}} </b-nav-item>
-
-
-
+               <b-nav-item> Hi, {{$auth.$state.user.name}} </b-nav-item>
+               <b-nav-item>
+               <nuxt-link to="/">
+               Home
+            </nuxt-link>
+              </b-nav-item>
             <b-nav-item>
                <nuxt-link to="/profile">
                Profile
@@ -31,6 +37,11 @@
             </b-nav-item>
               </template>
               <template v-else>
+              <b-nav-item>
+               <nuxt-link to="/">
+               Home
+            </nuxt-link>
+              </b-nav-item>
                  <b-nav-item>
               <nuxt-link to="/login">
               Login
@@ -40,7 +51,8 @@
 
             <b-nav-item>
           <nuxt-link to="/cart">
-           Cart ({{getCartLength}})
+          <fa icon="shopping-cart"/>
+            ({{getCartLength}})
             </nuxt-link>
             </b-nav-item>
 
@@ -50,13 +62,12 @@
             </nuxt-link>
             </b-nav-item>
 
-
       </b-navbar-nav>
 
       </b-navbar-nav>
     </b-collapse>
   </b-navbar>
-  <!-- <Search/> -->
+
 </div>
 </template>
 

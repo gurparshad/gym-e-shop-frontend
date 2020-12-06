@@ -1,15 +1,16 @@
 <template>
 <div>
-  <h3>Product Details</h3>
   <div class="productDetails">
       <h3>{{product.title}}</h3>
       <h3>$ {{product.price}}</h3>
       <!-- <div>{{product.rating}}</div> -->
       <img class="prodImage" :src="'http://localhost:5000/'+ product.photo"/>
-      <button @click="addProductToCart(product)">Add to Cart</button>
+      <button class="btn btn-dark" @click="addProductToCart(product)">Add to Cart</button>
       <div class="productDesc">
-          <h3>Description:</h3>
+          <h3>Description</h3>
           <p>{{product.description}}</p>
+          <h3>Rating</h3>
+          <p>⭐⭐⭐⭐⭐</p>
       </div>
       </div>
       <div class="reviewSection">
@@ -49,8 +50,8 @@ export default {
 </script>
 
 <style>
-
 .productDetails{
+    margin-top: 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -60,6 +61,8 @@ export default {
 .prodImage{
   height: 400px;
   width: 300px;
+  border-radius: 10px;
+  margin: 10px;
 }
 
 .productDesc{

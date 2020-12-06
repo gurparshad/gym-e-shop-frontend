@@ -26,8 +26,8 @@
       <p>Delivery Instructions: {{addresses[0].deliverInstructions}}</p>
       <p>Security Code: {{addresses[0].securityCode}}</p>
       <span>
-        <nuxt-link to="">Edit</nuxt-link>
-        <nuxt-link to="">Delete</nuxt-link>
+        <nuxt-link class="btn btn-dark" to="">Edit</nuxt-link>
+        <nuxt-link class="btn btn-dark" to="">Delete</nuxt-link>
       </span>
       </template>
 
@@ -52,6 +52,10 @@ export default {
 </script>
 
 <style scoped>
+a{
+  text-decoration: none;
+  color: whitesmoke;
+}
 .userDetails{
   margin: 30px;
 }

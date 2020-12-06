@@ -21,7 +21,7 @@
     <input type="password" class="form-control" id="confirmPassword">
   </div>
 
-  <button type="submit" class="btn btn-primary" @click="onSignup">Submit</button>
+  <button type="submit" class="btn btn-dark" @click="onSignup">Submit</button>
 
     <p>Already have an Account? </p>
 <nuxt-link to="/login">Login into your account</nuxt-link>

@@ -11,7 +11,11 @@ export default {
       { hid: 'description', name: 'description', content: '' }
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
+      {
+        rel: 'stylesheet',
+        href: 'https://fonts.googleapis.com/css2?family=East+Sea+Dokdo&family=Roboto:wght@300&display=swap'
+      }
     ]
   },
   // server: {
@@ -20,6 +24,7 @@ export default {
 
   // Global CSS (https://go.nuxtjs.dev/config-css)
   css: [
+    '@/assets/main.css'
   ],
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
@@ -32,7 +37,15 @@ export default {
   buildModules: [
     // https://go.nuxtjs.dev/stylelint
     '@nuxtjs/stylelint-module',
+    '@nuxtjs/fontawesome',
   ],
+  fontawesome: {
+    component: 'fa',
+    icons: {
+      solid: ['faShoppingCart'],
+      brands: []
+    }
+  },
 
   // Modules (https://go.nuxtjs.dev/config-modules)
   modules: [

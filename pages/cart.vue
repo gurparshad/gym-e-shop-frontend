@@ -1,11 +1,11 @@
 <template>
-  <div>
+  <div class="cart">
     <h2>Your Cart</h2>
     <hr>
-    <div v-for="product in getCart" :key="product._id">
+    <div class="product" v-for="product in getCart" :key="product._id">
       <h2>{{product.title}}</h2>
-      <h3>Qty: {{product.quantity}}</h3>
-      <h3>$ {{product.price * product.quantity}}</h3>
+      <h5>Quantity: {{product.quantity}}</h5>
+      <h4>$ {{product.price * product.quantity}}</h4>
       <!-- <div>{{product.rating}}</div> -->
        <img :src="'http://localhost:5000/'+ product.photo"/>
         Qty:
@@ -14,16 +14,17 @@
            &nbsp;{{i}}
          </option>
        </select>
-      <button @click="$store.commit('removeProduct', product)">Remove</button>
-
+      <button class="btn btn-dark" @click="$store.commit('removeProduct', product)">Remove</button>
+      <nuxt-link :to="'/products/'+product._id" class="btn btn-dark">Product Details</nuxt-link>
+<!--
       <div>
           <h3>Description:</h3>
           <p>{{product.description}}</p>
-      </div>
+      </div> -->
     </div>
     <hr>
     <h3>Subtotal({{getCartLength}} items): ${{getCartTotalPrice}}</h3>
-    <button>
+    <button class="btn btn-dark">
       <nuxt-link to="/placeorder">Proceed to Checkout
     </nuxt-link></button>
     <nuxt-link to="/placeorder">
@@ -55,8 +56,23 @@ export default {
 </script>
 
 <style scoped>
+.product{
+  margin: 20px;
+  padding: 20px;
+  border: 1px solid lightgray;
+}
+.cart{
+margin: 20px;
+}
+a{
+  text-decoration: none;
+  color: white;
+}
 img{
   height: 300px;
   width: 250px;
+}
+button{
+  margin: 20px;
 }
 </style>

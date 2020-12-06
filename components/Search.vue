@@ -1,9 +1,10 @@
 <template>
-  <div>
-    <div @click="modal=false"></div>
-    <label for="search">SearchProduct</label>
+  <div >
+    <div class="searchSection">
+    <label for="search">Find a Product</label>
     <input type="text" v-model="query" autocomplete="off" @input="filterProducts" @focus="modal=true">
-    <button @click="onSearch">Search</button>
+    <button @click="onSearch"  class="btn btn-dark">Search</button>
+    </div>
     <div class="searchSuggestions" v-if="filteredProducts && modal">
       <ul>
         <li v-for="filteredProduct in filteredProducts" :key="filteredProduct" @click="setSearchProduct(filteredProduct)">{{ filteredProduct}}</li>
@@ -51,6 +52,16 @@ data(){
 </script>
 
 <style scoped>
+.searchSection{
+  display: flex;
+  align-items: center;
+}
+.btn{
+  margin: 10px;
+}
+label{
+  margin: 10px;
+}
 ul{
   width: 300px;
   border: 1px lightgray solid;

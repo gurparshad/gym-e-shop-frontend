@@ -12,7 +12,7 @@
     <input type="password" v-model="password" class="form-control" id="password">
   </div>
 
-  <button type="submit" class="btn btn-primary" @click="onLogin">Login</button>
+  <button type="submit" class="btn btn-dark" @click="onLogin">Login</button>
   <p>Don't have an Account? </p>
 <nuxt-link to="/signup">Register Here</nuxt-link>
 </form>

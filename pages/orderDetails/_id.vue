@@ -1,17 +1,21 @@
 <template>
   <div>
-    <div>
-      <h3>OrderId:{{order._id}} </h3>
-      <h3>Order Total: ${{orderTotal}}</h3>
+    <div class="order">
+      <h5>OrderId:{{order._id}} </h5>
+      <h4>Order Total: ${{orderTotal}}</h4>
       <div class="products">
         <div class="product" v-for="product in order.products" :key="product._id">
         <h4>{{product.prodId.title}}</h4>
         <img :src="'http://localhost:5000/'+ product.prodId.photo" alt="">
-        <p>Quantity:{{product.quantity}}</p>
         <p>Price: {{product.price}}</p>
-      </div>
+        <p>Quantity:{{product.quantity}}</p>
+        <nuxt-link :to="'/reviews/'+ product.prodId._id" class="btn btn-dark">Add Review</nuxt-link>
+        </div>
       </div>
     </div>
+
+    <nuxt-link to="/orders" class="backbtn btn btn-dark">Back</nuxt-link>
+
   </div>
 </template>
 
@@ -35,3 +39,17 @@ export default {
 }
 </script>
 
+<style scoped>
+.backbtn{
+    margin: 0 auto;
+    display: block;
+    width: 100px;
+}
+.order{
+  margin:20px
+}
+.products{
+  border: 3px solid lightgray;
+  padding: 10px;
+}
+</style>

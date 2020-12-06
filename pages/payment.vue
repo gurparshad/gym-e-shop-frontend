@@ -35,7 +35,7 @@
                   </div>
 
                   <!-- Purchase Button -->
-                  <button @click="onPurchase">Purchase</button>
+                  <button class="btn btn-dark" @click="onPurchase">Pay Now</button>
                 </div>
               </form>
             </div>

@@ -1,7 +1,8 @@
 <template>
     <div class="categorySection">
-    <h5>Shop by Category</h5>
+ <!-- <h5>Shop by Category</h5> -->
     <div class="categories">
+
     <div v-for="category in categories" :key="category._id">
       <NuxtLink :to="'/category/' + category._id">
       <h5>{{category.type}}</h5>
@@ -21,9 +22,13 @@ export default {
 <style scoped>
 h5{
   text-align: center;
+  color: white;
+}
+h5:hover{
+  color: rgb(172, 165, 165);
 }
 .categorySection{
-   background-color: rgb(55, 178, 206);
+   background-color: rgb(66, 72, 73);
     padding: 10px;
 }
 .categories{
@@ -35,4 +40,5 @@ a{
   color: white;
   text-decoration: none;
 }
+
 </style>

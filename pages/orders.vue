@@ -4,16 +4,13 @@
   <div v-for="order in orders" :key="order._id">
 
     <h4>
-      <NuxtLink :to="'/orderDetails/' + order._id">
       Order Id: {{order._id}}
-      </NuxtLink>
       </h4>
     <div class="orders-products">
       <div class="product" v-for="product in order.products" :key="product._id">
         <h4>{{product.prodId.title}}</h4>
         <img :src="'http://localhost:5000/'+ product.prodId.photo" alt="">
-        <!-- <p>Quantity:{{product.quantity}}</p>
-        <p>Price: {{product.price}}</p> -->
+        <nuxt-link :to="'/orderDetails/' + order._id" class="btn btn-dark">Order Details</nuxt-link>
       </div>
     </div>
   </div>
@@ -49,6 +46,11 @@ a{
 .orders-products{
   border: 1px solid lightgray;
   padding: 20px;
+}
+
+.btn{
+  margin: 20px;
+  color: white;
 }
 
 </style>
